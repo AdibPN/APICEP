@@ -11,9 +11,9 @@ class EnderecoController extends Controller
         /*var_dump: revela o conteudo de algo*/
         //parent::gerResponseAsJSON("alunos");
 
-        $cidades = ['itapui', 'jau'];
+        $cidades = ['itapui', 'jau', 'bariri'];
 
-        parent::gerResponseAsJSON("$cidades");
+        parent::gerResponseAsJSON($cidades);
     }
 
 }

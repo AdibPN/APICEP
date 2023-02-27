@@ -2,6 +2,9 @@
 
 namespace APICEP\Controller;
 
+use APICEP\Model\{EnderecoModel, CidadeModel};
+use Exception;
+
 include 'Controller.php';
 
 class EnderecoController extends Controller
@@ -16,4 +19,23 @@ class EnderecoController extends Controller
         parent::gerResponseAsJSON($cidades);
     }
 
+    public static function getLogradouroByCep(): void
+    {
+
+    }
+
+    public static function getLogradouroByBairroAndCidade()
+    {
+
+    }
+
+    public static function getCidadesByUf()
+    {
+
+    }
+
+    public static function getBairrosByCidade()
+    {
+
+    }
 }

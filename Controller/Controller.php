@@ -6,7 +6,7 @@ use Exception;
 abstract class Controller 
 {
 
-    protected static function gerResponseAsJSON($data)
+    protected static function getResponseAsJSON($data)
     {
         header("Acess-Control-Allow-Origin: *");
         header("Content-type: application/json; charset=utf-8");

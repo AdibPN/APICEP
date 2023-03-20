@@ -18,7 +18,7 @@ class EnderecoController extends Controller
 
         $cidades = ['itapui', 'jau', 'bariri'];
 
-        parent::gerResponseAsJSON($cidades);
+        parent::getResponseAsJSON($cidades);
     }
 
     public static function getLogradouroByCep(): void
@@ -28,7 +28,7 @@ class EnderecoController extends Controller
                 isset($_GET['cep']) ? $_GET['cep'] : null
             );
             $model = new EnderecoModel();
-            parent::gerResponseAsJSON($model->getLogradouroByCep($cep));
+            parent::getResponseAsJSON($model->getLogradouroByCep($cep));
         } catch (Exception $e){
             parent::getExceptionAsJSON($e);
         }
@@ -51,7 +51,7 @@ class EnderecoController extends Controller
             $model = new EnderecoModel();
             $model->getLogradouroByBairroAndCidade($bairro, $id_cidade);
 
-            parent::gerResponseAsJSON($model->rows);
+            parent::getResponseAsJSON($model->rows);
 
 
         } catch (Exception $e) {
@@ -70,7 +70,7 @@ class EnderecoController extends Controller
             parent::getResponseAsJSON($model->rows);
 
         } catch (Exception $e) {
-            parent::gerResponseAsJSON($e);
+            parent::getResponseAsJSON($e);
         }
 
 
@@ -87,7 +87,7 @@ class EnderecoController extends Controller
             parent::getResponseAsJSON($model->rows);
 
         } catch (Exception $e) {
-            parent::gerResponseAsJSON($e);
+            parent::getResponseAsJSON($e);
         }
 
 
@@ -100,7 +100,7 @@ class EnderecoController extends Controller
             $logradouro = $_GET['logradouro'];
             $model = new EnderecoModel();
             $model->getCepByLogradouro($logradouro);
-            parent::gerResponseAsJSON($model->rows);
+            parent::getResponseAsJSON($model->rows);
 
         }
         catch (Exception $e) 

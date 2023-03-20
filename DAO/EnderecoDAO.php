@@ -23,6 +23,11 @@ class EnderecoDAO extends DAO
         return $endereco_obj;
     }
 
+    function selectCepByLogradouro(string $logradouro) 
+    {
+
+    }
+
     public function selectLogradouroByBairroAndCidade(
         string $bairro, int $id_cidade)
     {

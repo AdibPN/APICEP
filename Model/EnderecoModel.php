@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace APICEP\Model;
 use APICEP\DAO\EnderecoDao;
 use Exception;
 
@@ -12,7 +12,7 @@ class EnderecoModel extends Model
 
     public $arr_cidades;
 
-    public function gerLogradouroByCep(int $cep)
+    public function getLogradouroByCep(int $cep)
     {
         try 
         {
@@ -28,15 +28,24 @@ class EnderecoModel extends Model
 
     public function getCepByLogradouro($logradouro)
     {
-        try
-        {
-            $dao = new EnderecoDAO();
+        try {
+            $dao = new EnderecoDAO;
+
             $this->rows = $dao->selectCepByLogradouro($logradouro);
-
-
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
         }
+    }
+
+    public function getLogradouroByBairroAndCidade($bairro, $id_cidade)
+    {
 
     }
+
+    public function getBairrosByCidade($id_cidade)
+    {
+
+    }
+
+    
 }

@@ -1,11 +1,13 @@
 <?php
 
 namespace APICEP\Model;
-use APICEP\EnderecoDAO;
+
+use APICEP\DAO\EnderecoDAO;
+
 class CidadeModel extends Model
 {
     public $id_cidade, $descricao, $uf, $codigo_ibge, $ddd;
-    public fuction getCidadesByUf($uf)
+    public function getCidadesByUf($uf)
     {
         $dao = new EnderecoDAO();
         $this->rows = $dao->selectCidadesByUf($uf);

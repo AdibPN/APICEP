@@ -76,7 +76,7 @@ class EnderecoController extends Controller
 
     }
 
-    public static function getBairrosByCidade() : void
+    public static function getBairrosByIdCidade() : void
     {
         try{
             $id_cidade = parent::getIntFromUrl(

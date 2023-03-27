@@ -35,23 +35,18 @@ class EnderecoController extends Controller
 
     }
 
-    public static function getLogradouroByBairroAndCidade()
+    public static function getLogradouroByBairroAndCidade() : void
     {
         try
         {
-            $bairro = 
-            parent::getStringFromUrl(
-                isset($_GET['bairro']) ? $_GET['bairro'] : null,
-                'bairro');
+            $bairro = parent::getStringFromUrl(isset($_GET['bairro']) ? $_GET['bairro'] : null, 'bairro');
 
-            $id_cidade = parent::getIntFromUrl(
-                    isset($_GET['id_cidade'])? $_GET['id_cidade'] : null, 'cep');
-
+            $id_cidade = parent::getIntFromUrl( isset($_GET['id_cidade'])? $_GET['id_cidade'] : null, 'id_cidade');
                 
             $model = new EnderecoModel();
             $model->getLogradouroByBairroAndCidade($bairro, $id_cidade);
 
-            parent::getResponseAsJSON($model->rows);
+            parent::setResponseAsJSON($model->rows);
 
 
         } catch (Exception $e) {
@@ -78,18 +73,16 @@ class EnderecoController extends Controller
 
     public static function getBairrosByIdCidade() : void
     {
-        try{
-            $id_cidade = parent::getIntFromUrl(
-                isset($_GET['id_cidade']) ? $_GET['id_cidade'] : null);
+        try {
 
+            $cidade = parent::getIntFromURL($_GET['id_cidade']);
             $model = new EnderecoModel();
-            $model->getBairrosByCidade($id_cidade);
-            parent::getResponseAsJSON($model->rows);
+            $model->getBairrosByIdCidade($cidade);
 
+            parent::setResponseAsJSON($model->rows);
         } catch (Exception $e) {
-            parent::getResponseAsJSON($e);
+            parent::getExceptionAsJSON($e);
         }
-
 
     }
 
@@ -100,7 +93,8 @@ class EnderecoController extends Controller
             $logradouro = $_GET['logradouro'];
             $model = new EnderecoModel();
             $model->getCepByLogradouro($logradouro);
-            parent::getResponseAsJSON($model->rows);
+            
+            parent::setResponseAsJSON($model->rows);
 
         }
         catch (Exception $e) 

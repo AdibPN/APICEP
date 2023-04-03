@@ -9,6 +9,7 @@ switch ($url)
 
         //OK
         //http://localhost:8000/endereco/by-cep?cep=17210580
+        //http://10.0.2.2:8000/endereco/by-cep?cep=17210580
     case '/endereco/by-cep':
         EnderecoController::getLogradouroByCep();
         break;
